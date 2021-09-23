@@ -39,14 +39,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['title'=>'required|unique:posts|max:255']);
+        $request->validate(['title'=>'required|unique:articles|max:255']);
         $request->validate(['content'=>'required']);
 
         $newArticle =new Artcle();
         $newAuthor = new Author();
         $data =$request ->all();
         $this->getAndSaveDetails($newArticle, $request);
-        return redirect()->route('posts.show', $newArticle->id);
+        return redirect()->route('articles.show', $newArticle->id);
     }
 
     /**

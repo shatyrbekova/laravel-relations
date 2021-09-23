@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('templates.home')
 
-@section('content')
+@section('create')
     <div class="container">
          <h3>Crea un nuovo articolo</h3>
 

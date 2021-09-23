@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('templates.home')
 
-@section('content')
+@section('articles')
 <div class="container posts-container">
     <h3>Aggiungi un nuovo post <a href="{{route('articles.create')}}"><i class="bi bi-plus-square"></i></a></h3>
      <table class="table">
