@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use Illuminate\Http\Request;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -28,7 +29,8 @@ class ArticleController extends Controller
     public function create()
     {
         $authors = Author::all();
-        return view('articles.create', compact('authors'));
+        $tags =Tag::all(); //tags non è collegato altri tags nel controller
+        return view('articles.create', compact('authors','tags'));
     }
 
     /**
@@ -39,6 +41,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+      
         $request->validate(['title'=>'required|unique:articles|max:255']);
         $request->validate(['content'=>'required']);
 
@@ -99,5 +102,9 @@ class ArticleController extends Controller
            $article->content=$data['content'];
            $article->author_id = $data['author_id'];
            $article->save();
+
+           foreach($data['tags']as $tagsId){
+               $article->tag()->attach($tagsId);
+           }
     }
 }

@@ -2,6 +2,7 @@
 
 @section('create')
     <div class="container">
+        
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -11,6 +12,7 @@
             </ul>
         </div>
     @endif
+
          <h3>Crea un nuovo articolo</h3>
 
          <form action="{{route('articles.store')}}" method="post">
@@ -36,6 +38,15 @@
                           <option value="{{$author->id}}"> {{ucfirst($author->name)}} {{ucfirst($author->surname)}}</option>
                       @endforeach
                     </select>
+                </div>
+                <strong>Tags</strong>
+                <div class="form-group">
+                @foreach ($tags as $tag)
+                <div>
+            {{--tags[] diventerà un array di id di tags per cui abbiamo flaggato la checbox --}}
+                    <input name="tags[]" type="checkbox" value={{$tag->id}}><label>{{$tag->name}} </label>
+                </div>
+                @endforeach
                 </div>
             </div>
             <div class="form-group">

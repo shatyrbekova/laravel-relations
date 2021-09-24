@@ -13,7 +13,7 @@ class CreateTagArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_article', function (Blueprint $table) {
+        Schema::create('article_tag', function (Blueprint $table) {
             $table->id();
             //qui inseriamo le FK verso article e verso tag
             $table->unsignedBigInteger('article_id');
@@ -31,6 +31,6 @@ class CreateTagArticleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_article');
+        Schema::dropIfExists('article_tag');
     }
 }

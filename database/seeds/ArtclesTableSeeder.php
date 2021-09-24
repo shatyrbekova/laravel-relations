@@ -56,7 +56,7 @@ class ArtclesTableSeeder extends Seeder
         for ($i = 0; $i < 50; $i++){
             $authorRandomKey = array_rand($authorsList, 1);
             $author = $authorsList[$authorRandomKey];
-
+        
             $articleObject=new Article();
             $articleObject->title = $faker->sentence(1);
             $articleObject->content =$faker->text();
@@ -67,10 +67,11 @@ class ArtclesTableSeeder extends Seeder
 
             $tag1 =$tagsList[$randomTagsKeys[0]];//1 chiave estratta
             $tag2 =$tagsList[$randomTagsKeys[1]];//2 chiave estratta
+            $articleObject-> save();//salviamo per poter avere l'id del articleObject(insert). salviamo prima di attach
             $articleObject->tag()->attach($tag1);
             $articleObject->tag()->attach($tag2);
 
-            $articleObject-> save();
+           
 
         }
 

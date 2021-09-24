@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="/js/app.js"></script>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="./bootstrap-italia.min.css">
     <title>RaiNews</title>
 </head>
 <body>

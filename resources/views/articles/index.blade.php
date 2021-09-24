@@ -17,14 +17,14 @@
      <tbody>
          @foreach($allArticles as $article)
              <tr>
-                 <th scope="row" class="id">{{$article->id}}</th>
+                 <td  class="id">{{$article->id}}</td>
                  <td>{{strtoupper($article->title)}}</td>
                  <td>{{$article->content}}</td>
-                 <td>{{$article->author}}</td>
+                 <td>{{$article->author->name}}</td>
                  
                
                  <td>
-                     <a href="{{ route('articles.show', $post) }}">
+                     <a href="{{ route('articles.show',  $article) }}">
                          <button class="btn btn-warning">
                              <i class="bi bi-zoom-in"></i>
                          </button>
@@ -36,5 +36,9 @@
                 </td>
                  
              </tr>
+             @endforeach
+      </tbody>
+     </table>
+</div>
 
 @endsection

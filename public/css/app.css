@@ -12169,8 +12169,43 @@ nav button {
   color: white;
 }
 
+nav img {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+.chips {
+  margin-bottom: 30px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #38c172;
+}
+
+.articles-container {
+  align-items: center;
+  background-color: #e3f2fd;
+  margin-top: 30px;
+}
+
+.articles-container h3,
+.articles-container .h3 {
+  margin-top: 30px;
+}
+
+nav img {
+  width: 200px;
+}
+
+nav form {
+  display: flex;
+  margin-right: 15px;
+}
+
+a {
+  color: red;
 }
 
