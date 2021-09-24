@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Artcle;
+use App\Article;
 use App\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-         $allArticles = Artcle::all();
+         $allArticles = Article::all();
          return view('articles.index', compact('allArticles'));
 
     }
@@ -42,7 +42,7 @@ class ArticleController extends Controller
         $request->validate(['title'=>'required|unique:articles|max:255']);
         $request->validate(['content'=>'required']);
 
-        $newArticle =new Artcle();
+        $newArticle =new Article();
         $newAuthor = new Author();
         $data =$request ->all();
         $this->getAndSaveDetails($newArticle, $request);
@@ -57,7 +57,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article=Artcle::find($id);
+        $article=Article::find($id);
         return view('articles.show', compact('article'));
     }
 
@@ -94,7 +94,7 @@ class ArticleController extends Controller
     {
         //
     }
-    private function getAndSaveDetails(Artcle $article, $data){
+    private function getAndSaveDetails(Article $article, $data){
            $article->title=$data['title'];
            $article->content=$data['content'];
            $article->author_id = $data['author_id'];

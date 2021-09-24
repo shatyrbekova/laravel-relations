@@ -18,6 +18,7 @@ class CreateAuthorsTable extends Migration
             $table->string('name',50);
             $table->string('surname',50);
             $table->string('mail')->unique();
+            $table->text('picture');
             $table->string('phone',50);
             $table->timestamps();
         });

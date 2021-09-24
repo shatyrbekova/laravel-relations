@@ -4,11 +4,11 @@
    <div class="container articles-container">
       
 
-                <div class="row">{{$article->id}}</div>
                 <h2> {{strtoupper($article->title)}}</h2>
-                Ciao
+                
                 <h3> {{ucfirst($article->author->name)}}</h3>
                 <h3> {{ucfirst($article->author->surname)}}</h3>
+                <img src="{{$article->author->picture}}" alt="picture">
                 <p> {{$article->content}}</p>
                
                 
