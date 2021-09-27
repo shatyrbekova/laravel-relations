@@ -11,4 +11,5 @@ class Article extends Model
     public function tag(){
         return $this->belongsToMany(Tag::class);
     }
+    
 }

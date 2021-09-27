@@ -42,8 +42,8 @@ class ArtclesTableSeeder extends Seeder
 
         for ($i = 0; $i < 20; $i++){
             $authorDetail = new Author();
-            $authorDetail->name = $faker->words(2, true);
-            $authorDetail->surname = $faker->words(2, true);
+            $authorDetail->name = $faker->firstName();
+            $authorDetail->surname = $faker->lastName();
             $authorDetail->mail= $faker->safeEmail();
             $authorDetail->phone=$faker->phoneNumber();
             $randPictureList =array_rand($pictureList, 1);
@@ -74,6 +74,7 @@ class ArtclesTableSeeder extends Seeder
            
 
         }
+    
 
     }
 }

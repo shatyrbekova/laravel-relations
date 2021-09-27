@@ -15,7 +15,7 @@
          </tr>
      </thead>
      <tbody>
-         @foreach($allArticles as $article)
+         @foreach($articles as $article)
              <tr>
                  <td  class="id">{{$article->id}}</td>
                  <td>{{strtoupper($article->title)}}</td>
@@ -39,6 +39,9 @@
              @endforeach
       </tbody>
      </table>
+     <div>
+         {!! $articles->links()!!}
+     </div>
 </div>
 
 @endsection
