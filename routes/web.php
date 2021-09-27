@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('articles', 'ArticleController');
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');

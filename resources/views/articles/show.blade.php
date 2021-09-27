@@ -21,7 +21,17 @@
                   </span>
                    
                 @endforeach
-                
+
+                <form method="post" action="{{ route('comment.add') }}">
+                  @csrf
+                  <div class="form-group">
+                      <input type="text" name="comment_body" class="form-control" placeholder="Type your comment" />
+                      <input type="hidden" name="article_id" value="{{ $article->id }}" />
+                  </div>
+                  <div class="form-group">
+                      <input type="submit" class="btn btn-warning" value="Add Comment" />
+                  </div>
+              </form>
                 
 
                  </div>
