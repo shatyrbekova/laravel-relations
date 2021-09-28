@@ -15,7 +15,7 @@
 
          <h3>Crea un nuovo articolo</h3>
 
-         <form action="{{route('articles.store')}}" method="post">
+         <form action="{{route('articles.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group ">
                 <label for="title">Title</label>
@@ -25,6 +25,10 @@
             <div class="form-group ">
                 <label for="content">Content</label>
                 <input type="text" name="content" id="content" class="form-control">
+            </div>
+            <div class="form-group ">
+                <label for="pictureFile">Picture</label>
+                <input type="file" name="pictureFile" id="pictureFile" class="form-control">
             </div>
            <br>
             <div class="form-group">
