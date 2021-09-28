@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewArticleCreated;
 use App\Tag;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +52,7 @@ class ArticleController extends Controller
         $newAuthor = new Author();
         $data =$request ->all();
         $this->getAndSaveDetails($newArticle, $request);
+        Mail::to('info@inbox.it')->send(new NewArticleCreated($newArticle));
         return redirect()->route('articles.show', $newArticle->id);
     }
 

@@ -17,5 +17,6 @@ class CommentController extends Controller
         $article->comments()->save($comment);
 
         return back();
+        //https://appdividend.com/2018/06/20/create-comment-nesting-in-laravel/
     }
 }
