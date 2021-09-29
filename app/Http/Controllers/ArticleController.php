@@ -113,8 +113,8 @@ class ArticleController extends Controller
            $article->content=$data['content'];
            $article->author_id = $data['author_id'];
            $picturePath = Storage::put('images', $data['pictureFile']);
-           $article->picture=$data['picturePath'];
-           dd($picturePath);
+           $article->picture=$picturePath;
+        //    dd($picturePath);
            $article->save();
           
            foreach($data['tags']as $tagsId){
