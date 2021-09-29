@@ -9,7 +9,7 @@
                 
                 <h3>Scritto da: {{ucfirst($article->author->name)}} {{ucfirst($article->author->surname)}}</h3>
                 <p>Pubblicato:{{$article->created_at}}</p>
-                
+                <img src="{{$article->picture}}" alt="">
                 <img src="{{$article->author->picture}}" alt="picture">
                 <p> {{$article->content}}</p>
                

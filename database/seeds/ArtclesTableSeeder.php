@@ -61,7 +61,7 @@ class ArtclesTableSeeder extends Seeder
             $articleObject->title = $faker->sentence(1);
             $articleObject->content =$faker->text();
             $articleObject->author_id = $author;
-           
+            $articleObject->picture= $faker->imageUrl(640, 480, 'books', true);
 
             //peschiamo due tags random
             $randomTagsKeys=array_rand($tagsList, 2);

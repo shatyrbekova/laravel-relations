@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewArticleCreated;
 use App\Tag;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -47,6 +48,9 @@ class ArticleController extends Controller
       
         $request->validate(['title'=>'required|unique:articles|max:255']);
         $request->validate(['content'=>'required']);
+        $request->validate([
+            'pictureFile'=>'required'
+        ]);
 
         $newArticle =new Article();
         $newAuthor = new Author();
@@ -108,8 +112,11 @@ class ArticleController extends Controller
            $article->title=$data['title'];
            $article->content=$data['content'];
            $article->author_id = $data['author_id'];
+           $picturePath = Storage::put('images', $data['pictureFile']);
+           $article->picture=$data['picturePath'];
+           dd($picturePath);
            $article->save();
-
+          
            foreach($data['tags']as $tagsId){
                $article->tag()->attach($tagsId);
            }
